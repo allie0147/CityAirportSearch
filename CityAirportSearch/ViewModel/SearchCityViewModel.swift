@@ -9,7 +9,9 @@ import RxCocoa
 
 protocol SearchCityViewPresentable {
     /// Data From ViewController to ViewModel
-    typealias Input = ()
+    typealias Input = (
+        searchText: Driver<String>, ()
+    )
     /// Data From ViewModel to ViewController
     typealias Output = ()
 

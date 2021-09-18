@@ -9,5 +9,6 @@ target 'CityAirportSearch' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'Alamofire'
 
 end

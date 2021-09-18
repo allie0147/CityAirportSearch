@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxDataSources
 
-class SearchCityViewController: UIViewController {
+class SearchCityViewController: UIViewController, Storyboardable {
 
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var searchTextField: UITextField!

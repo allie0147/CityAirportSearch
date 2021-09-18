@@ -13,6 +13,7 @@
 		7F04183A26F5CAAD00AE3815 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04183926F5CAAD00AE3815 /* Coordinator.swift */; };
 		7F04183C26F5CC9400AE3815 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04183B26F5CC9400AE3815 /* BaseCoordinator.swift */; };
 		7F04183F26F5CD8B00AE3815 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04183E26F5CD8B00AE3815 /* Storyboardable.swift */; };
+		7F04184126F5D46800AE3815 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04184026F5D46800AE3815 /* AppCoordinator.swift */; };
 		7F2FBE7D26F4B80B00760483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FBE7C26F4B80B00760483 /* AppDelegate.swift */; };
 		7F2FBE7F26F4B80B00760483 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FBE7E26F4B80B00760483 /* SceneDelegate.swift */; };
 		7F2FBE8126F4B80B00760483 /* SearchCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8026F4B80B00760483 /* SearchCityViewController.swift */; };
@@ -29,6 +30,7 @@
 		7F04183926F5CAAD00AE3815 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7F04183B26F5CC9400AE3815 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		7F04183E26F5CD8B00AE3815 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
+		7F04184026F5D46800AE3815 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7F2FBE7926F4B80B00760483 /* CityAirportSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityAirportSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2FBE7C26F4B80B00760483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F2FBE7E26F4B80B00760483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				7F04183726F5CA6700AE3815 /* SearchCityCoordinator.swift */,
 				7F04183926F5CAAD00AE3815 /* Coordinator.swift */,
 				7F04183B26F5CC9400AE3815 /* BaseCoordinator.swift */,
+				7F04184026F5D46800AE3815 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				7F04183826F5CA6700AE3815 /* SearchCityCoordinator.swift in Sources */,
 				7F04183F26F5CD8B00AE3815 /* Storyboardable.swift in Sources */,
 				7F04183C26F5CC9400AE3815 /* BaseCoordinator.swift in Sources */,
+				7F04184126F5D46800AE3815 /* AppCoordinator.swift in Sources */,
 				7F04183526F4C02400AE3815 /* SearchCityViewModel.swift in Sources */,
 				7F2FBE7F26F4B80B00760483 /* SceneDelegate.swift in Sources */,
 			);

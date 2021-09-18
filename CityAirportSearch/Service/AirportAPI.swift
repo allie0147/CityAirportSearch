@@ -8,5 +8,5 @@
 import RxSwift
 
 protocol AirportAPI {
-    func fetchAirports()
+    func fetchAirports() -> Single<AirportsResponse>
 }

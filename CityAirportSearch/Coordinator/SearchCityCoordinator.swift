@@ -16,11 +16,12 @@ class SearchCityCoordinator: BaseCoordinator {
 
     override func start() {
         let view = SearchCityViewController.instantiate()
+        let service = AirportService.shared
 
         view.viewModelBuilder = {
-            SearchCityViewModel(input: $0)
+            SearchCityViewModel(input: $0, airportService: service)
         }
-        
+
         navigationController.pushViewController(view, animated: true)
     }
 }

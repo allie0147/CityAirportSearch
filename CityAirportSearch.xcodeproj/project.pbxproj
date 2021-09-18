@@ -21,6 +21,7 @@
 		7F04184F26F5E31600AE3815 /* AirportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04184E26F5E31600AE3815 /* AirportService.swift */; };
 		7F04185126F5E34D00AE3815 /* AirportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04185026F5E34D00AE3815 /* AirportAPI.swift */; };
 		7F04185426F5E7B700AE3815 /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04185326F5E7B700AE3815 /* AirportModel.swift */; };
+		7F04185626F5F53700AE3815 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04185526F5F53700AE3815 /* CustomError.swift */; };
 		7F2FBE7D26F4B80B00760483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FBE7C26F4B80B00760483 /* AppDelegate.swift */; };
 		7F2FBE7F26F4B80B00760483 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FBE7E26F4B80B00760483 /* SceneDelegate.swift */; };
 		7F2FBE8126F4B80B00760483 /* SearchCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8026F4B80B00760483 /* SearchCityViewController.swift */; };
@@ -45,6 +46,7 @@
 		7F04184E26F5E31600AE3815 /* AirportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportService.swift; sourceTree = "<group>"; };
 		7F04185026F5E34D00AE3815 /* AirportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportAPI.swift; sourceTree = "<group>"; };
 		7F04185326F5E7B700AE3815 /* AirportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
+		7F04185526F5F53700AE3815 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		7F2FBE7926F4B80B00760483 /* CityAirportSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityAirportSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2FBE7C26F4B80B00760483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F2FBE7E26F4B80B00760483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				7F04185326F5E7B700AE3815 /* AirportModel.swift */,
+				7F04185526F5F53700AE3815 /* CustomError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				7F2FBE8126F4B80B00760483 /* SearchCityViewController.swift in Sources */,
 				7F04184D26F5DFC800AE3815 /* AirportHttpRouter.swift in Sources */,
+				7F04185626F5F53700AE3815 /* CustomError.swift in Sources */,
 				7F04184926F5DEEE00AE3815 /* HttpService.swift in Sources */,
 				7F2FBE7D26F4B80B00760483 /* AppDelegate.swift in Sources */,
 				7F04184726F5DE3E00AE3815 /* HttpRouter.swift in Sources */,

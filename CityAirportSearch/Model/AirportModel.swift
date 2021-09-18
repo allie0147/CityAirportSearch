@@ -7,15 +7,14 @@
 
 import Foundation
 
-struct AirportResponse: Codable {
-    let data: [AirportModel]
-}
+typealias AirportsResponse = [AirportModel]
 
 struct AirportModel: Codable {
     let code, lat, lon, name: String
-    let city, state, country, woeid: String
+    let city, state, country, woeid: String?
     let tz, phone, type, email: String
-    let url, runwayLength, elev, icao: String
+    let url, elev, icao: String?
+    let runwayLength: String?
     let directFlights, carriers: String
 
     enum CodingKeys: String, CodingKey {
@@ -28,19 +27,16 @@ struct AirportModel: Codable {
 }
 
 extension AirportModel: Equatable {
-    
+
     static func == (lhs: AirportModel, rhs: AirportModel) -> Bool {
         return lhs.code == rhs.code
     }
 }
 
 extension AirportModel: Hashable {
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(code)
     }
 }
 
-
-
-typealias AirportsResponse = [AirportModel]

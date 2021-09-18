@@ -15,11 +15,18 @@ class SearchCityViewController: UIViewController, Storyboardable {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchTableView: UITableView!
 
-    var viewModel: SearchCityViewPresentable!
+    private var viewModel: SearchCityViewPresentable!
+    var viewModelBuilder: SearchCityViewPresentable.ViewModelBuilder!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        // viewModel is created using viewModelBuilder which passes Input
+        viewModel = viewModelBuilder((
+            searchText: searchTextField.rx.text.orEmpty.asDriver(), ()
+        ))
+        
+        self.title = "Airports"
     }
 }
 

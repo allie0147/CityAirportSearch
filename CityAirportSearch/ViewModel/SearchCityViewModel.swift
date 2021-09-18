@@ -15,6 +15,9 @@ protocol SearchCityViewPresentable {
     /// Data From ViewModel to ViewController
     typealias Output = ()
 
+    /// as presentable : passing Input makes ViewModel
+    typealias ViewModelBuilder = (SearchCityViewPresentable.Input) -> SearchCityViewPresentable
+
     var input: SearchCityViewPresentable.Input { get }
     var output: SearchCityViewPresentable.Output { get }
 }

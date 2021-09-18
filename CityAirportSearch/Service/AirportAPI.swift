@@ -7,6 +7,7 @@
 
 import RxSwift
 
+/// API Interface
 protocol AirportAPI {
     func fetchAirports() -> Single<AirportsResponse>
 }

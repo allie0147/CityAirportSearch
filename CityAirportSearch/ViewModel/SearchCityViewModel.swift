@@ -46,6 +46,7 @@ private extension SearchCityViewModel {
         return ()
     }
 
+    /// get data from API Service
     func process() {
         self.airportService.fetchAirports()
             .subscribe()

@@ -8,6 +8,7 @@
 import RxSwift
 import Alamofire
 
+/// Airport API Serivce
 class AirportService {
     private lazy var httpService = AirportHttpService()
     static let shared: AirportService = AirportService()
@@ -41,7 +42,9 @@ extension AirportService: AirportAPI {
 extension AirportService {
     static func parseAirports(result: AFDataResponse<Any>) throws -> AirportsResponse {
         guard let data = result.data,
-            let airportResponse = try? JSONDecoder().decode(AirportsResponse.self, from: data) else { throw CustomError.error(message: "Invalid Airport JSON") }
+            let airportResponse = try? JSONDecoder().decode(AirportsResponse.self, from: data) else {
+            throw CustomError.error(message: "Invalid Airport JSON")
+        }
         return airportResponse
     }
 }

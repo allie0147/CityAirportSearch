@@ -118,8 +118,7 @@
 		7F04184526F5DE0700AE3815 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				7F04184626F5DE3E00AE3815 /* HttpRouter.swift */,
-				7F04184826F5DEEE00AE3815 /* HttpService.swift */,
+				7F04185726F5F7AE00AE3815 /* Base */,
 				7F04184A26F5DF6600AE3815 /* AirportHttpService.swift */,
 				7F04184C26F5DFC800AE3815 /* AirportHttpRouter.swift */,
 			);
@@ -133,6 +132,15 @@
 				7F04185526F5F53700AE3815 /* CustomError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7F04185726F5F7AE00AE3815 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7F04184626F5DE3E00AE3815 /* HttpRouter.swift */,
+				7F04184826F5DEEE00AE3815 /* HttpService.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		7F2FBE7026F4B80B00760483 = {

@@ -7,6 +7,7 @@
 
 import Alamofire
 
+/// Router interface
 protocol HttpRouter {
 
     var baseUrl: String { get }

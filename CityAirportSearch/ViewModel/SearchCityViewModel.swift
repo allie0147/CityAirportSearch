@@ -55,10 +55,20 @@ private extension SearchCityViewModel {
     static func output(input: SearchCityViewPresentable.Input,
                        state: State,
                        bag: DisposeBag) -> SearchCityViewPresentable.Output {
+
+        let searchTextObservable = input.searchText
+            .debounce(.milliseconds(300)) // get text after 300 millis
+            .distinctUntilChanged() // prevent duplicated text
+            .skip(1) // skip first value so that it doesn't send any empty signal as it subscribed
+            .asObservable()
+            .share(replay: 1, scope: .whileConnected) // share observable (cold observable)
+
+        let airportObservable = state.airports.skip(1).asObservable()
+
         Observable
             .combineLatest(
-            input.searchText.asObservable(),
-            state.airports.asObservable()
+            searchTextObservable,
+            airportObservable
         )
             .map { (searchKey, airports) in
             airports.filter { (airport) -> Bool in // filtering searchText

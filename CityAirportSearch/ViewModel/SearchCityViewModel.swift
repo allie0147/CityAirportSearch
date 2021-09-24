@@ -58,9 +58,9 @@ private extension SearchCityViewModel {
 
         let searchTextObservable = input.searchText
             .debounce(.milliseconds(300)) // get text after 300 millis
-            .distinctUntilChanged() // prevent duplicated text
-            .skip(1) // skip first value so that it doesn't send any empty signal as it subscribed
-            .asObservable()
+        .distinctUntilChanged() // prevent duplicated text
+        .skip(1) // skip first value so that it doesn't send any empty signal as it subscribed
+        .asObservable()
             .share(replay: 1, scope: .whileConnected) // share observable (cold observable)
 
         let airportObservable = state.airports.skip(1).asObservable()
@@ -81,16 +81,16 @@ private extension SearchCityViewModel {
             }
         }
             .map {
-                // transport AirportModel to CityViewModel
-                
-                
-        }.subscribe()
+            // Transform AirportModel to CityViewModel
+            uniqueElementsFrom(array: $0.compactMap { CityViewModel(model: $0) })
+        }
+            .subscribe()
             .disposed(by: bag)
 
         return ()
     }
 
-    /// get data from API Service
+    /// Get data from API Service
     func process() {
         self.airportService
             .fetchAirports()
@@ -100,5 +100,26 @@ private extension SearchCityViewModel {
         }
             .subscribe()
             .disposed(by: bag)
+    }
+}
+
+// MARK: -Extension: SearchCityViewModel
+private extension SearchCityViewModel {
+
+    /// Get one airport from city
+    static func uniqueElementsFrom(array: [CityViewModel]) -> [CityViewModel] {
+        // Create an empty Set to track unique items
+        var set = Set<CityViewModel>()
+        return array.filter {
+            guard !set.contains($0) else {
+                // If the set already contains this object, return false
+                // so skip it
+                return false
+            }
+            // ADD this item to the set since it will now be in the array
+            set.insert($0)
+            // Retrun true so that filtered array will contain this item.
+            return true
+        }
     }
 }

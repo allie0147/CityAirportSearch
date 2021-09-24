@@ -13,7 +13,7 @@ protocol CityViewPresentable {
 }
 
 /// tableview cell view model
-struct CityViewModel: CityViewPresentable {
+struct CityViewModel: CityViewPresentable, Hashable {
 
     var city: String
     var location: String
@@ -25,5 +25,4 @@ extension CityViewModel {
         self.city = model.city ?? ""
         self.location = "\(model.state ?? ""), \(model.country ?? "")"
     }
-
 }

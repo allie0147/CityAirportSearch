@@ -15,8 +15,15 @@ class SearchCityViewController: UIViewController, Storyboardable {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchTableView: UITableView!
 
+    private let disposeBag = DisposeBag()
     private var viewModel: SearchCityViewPresentable!
     var viewModelBuilder: SearchCityViewPresentable.ViewModelBuilder!
+
+    private lazy var dataSource = RxTableViewSectionedReloadDataSource<CityItemsSection> { _, tableView, index, item in
+        let cityCell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: index) as! CityTableViewCell
+        cityCell.configure(usingViewModel: item)
+        return cityCell
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +32,23 @@ class SearchCityViewController: UIViewController, Storyboardable {
         viewModel = viewModelBuilder((
             searchText: searchTextField.rx.text.orEmpty.asDriver(), ()
         ))
-        
-        self.title = "Airports"
+
+        setupUI()
+        setupBinding()
     }
 }
 
+//MARK: -Extension
+private extension SearchCityViewController {
+
+    func setupUI() {
+        self.title = "Airports"
+        searchTableView.register(UINib(nibName: CityTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CityTableViewCell.identifier)
+    }
+
+    func setupBinding() {
+        self.viewModel.output.cities
+            .drive(searchTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
+}

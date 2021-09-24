@@ -7,14 +7,18 @@
 
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 protocol SearchCityViewPresentable {
     /// Data From ViewController to ViewModel
     typealias Input = (
         searchText: Driver<String>, ()
     )
+
     /// Data From ViewModel to ViewController
-    typealias Output = ()
+    typealias Output = (
+        cities: Driver<[CityItemsSection]>, ()
+    )
 
     /// as presentable : passing Input makes ViewModel
     typealias ViewModelBuilder = (SearchCityViewPresentable.Input) -> SearchCityViewPresentable
@@ -41,8 +45,7 @@ class SearchCityViewModel: SearchCityViewPresentable {
         self.input = input
         self.output = SearchCityViewModel.output(
             input: self.input,
-            state: state,
-            bag: bag
+            state: state
         )
         self.airportService = airportService
         self.process()
@@ -53,8 +56,7 @@ class SearchCityViewModel: SearchCityViewPresentable {
 private extension SearchCityViewModel {
 
     static func output(input: SearchCityViewPresentable.Input,
-                       state: State,
-                       bag: DisposeBag) -> SearchCityViewPresentable.Output {
+                       state: State) -> SearchCityViewPresentable.Output {
 
         let searchTextObservable = input.searchText
             .debounce(.milliseconds(300)) // get text after 300 millis
@@ -65,29 +67,31 @@ private extension SearchCityViewModel {
 
         let airportObservable = state.airports.skip(1).asObservable()
 
-        Observable
+        let sections = Observable
             .combineLatest(
             searchTextObservable,
             airportObservable
         )
             .map { (searchKey, airports) in
-            airports.filter { (airport) -> Bool in // filtering searchText
-                return !searchKey.isEmpty &&
-                    ((airport
-                    .city?
+            return airports.filter { (airport) -> Bool in // filtering searchText
+                !searchKey.isEmpty &&
+                    ((airport.city?
                     .lowercased()
                     .replacingOccurrences(of: " ", with: "")
-                    .hasPrefix(searchKey.lowercased())) != nil)
+                    .hasPrefix(searchKey.lowercased())) ?? false)
             }
         }
             .map {
             // Transform AirportModel to CityViewModel
             uniqueElementsFrom(array: $0.compactMap { CityViewModel(model: $0) })
         }
-            .subscribe()
-            .disposed(by: bag)
+            .map {
+            // Transform into RxDataSources
+            [CityItemsSection(model: 0, items: $0)]
+        }
+            .asDriver(onErrorJustReturn: [])
 
-        return ()
+        return (cities: sections, ())
     }
 
     /// Get data from API Service

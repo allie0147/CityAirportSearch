@@ -81,7 +81,9 @@ private extension SearchCityViewModel {
             }
         }
             .map {
-            print($0)
+                // transport AirportModel to CityViewModel
+                
+                
         }.subscribe()
             .disposed(by: bag)
 

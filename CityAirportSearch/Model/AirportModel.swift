@@ -9,7 +9,7 @@ import Foundation
 
 typealias AirportsResponse = [AirportModel]
 
-struct AirportModel: Codable {
+struct AirportModel: Codable, Hashable {
     let code, lat, lon, name: String
     let city, state, country, woeid: String?
     let tz, phone, type, email: String
@@ -26,17 +26,16 @@ struct AirportModel: Codable {
     }
 }
 
-extension AirportModel: Equatable {
-
-    static func == (lhs: AirportModel, rhs: AirportModel) -> Bool {
-        return lhs.code == rhs.code
-    }
-}
-
-extension AirportModel: Hashable {
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(code)
-    }
-}
-
+//extension AirportModel: Equatable {
+//
+//    static func == (lhs: AirportModel, rhs: AirportModel) -> Bool {
+//        return lhs.code == rhs.code
+//    }
+//}
+//
+//extension AirportModel: Hashable {
+//
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(code)
+//    }
+//}

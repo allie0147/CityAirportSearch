@@ -31,8 +31,6 @@ extension CityViewModel {
     }
 }
 
-//extension CityViewModel: Hashable { }
-
 extension CityViewModel: Equatable {
 
     static func == (lhs: CityViewModel, rhs: CityViewModel) -> Bool {

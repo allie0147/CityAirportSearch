@@ -26,8 +26,6 @@ struct AirportModel: Codable {
     }
 }
 
-//extension AirportModel: Hashable { }
-
 extension AirportModel: Equatable {
 
     static func == (lhs: AirportModel, rhs: AirportModel) -> Bool {

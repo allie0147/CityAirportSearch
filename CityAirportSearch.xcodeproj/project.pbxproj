@@ -31,6 +31,9 @@
 		7F2FBE8426F4B80B00760483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8226F4B80B00760483 /* Main.storyboard */; };
 		7F2FBE8626F4B80C00760483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8526F4B80C00760483 /* Assets.xcassets */; };
 		7F2FBE8926F4B80C00760483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8726F4B80C00760483 /* LaunchScreen.storyboard */; };
+		7F7F57482700B02E00DF4B09 /* AirportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F57472700B02E00DF4B09 /* AirportViewController.swift */; };
+		7F7F574A2700B09900DF4B09 /* AirportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F57492700B09900DF4B09 /* AirportViewModel.swift */; };
+		7F7F574C2700B9D600DF4B09 /* AirportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F574B2700B9D600DF4B09 /* AirportCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		7F2FBE8526F4B80C00760483 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F2FBE8826F4B80C00760483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F2FBE8A26F4B80C00760483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F7F57472700B02E00DF4B09 /* AirportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportViewController.swift; sourceTree = "<group>"; };
+		7F7F57492700B09900DF4B09 /* AirportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportViewModel.swift; sourceTree = "<group>"; };
+		7F7F574B2700B9D600DF4B09 /* AirportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportCoordinator.swift; sourceTree = "<group>"; };
 		FC811A9E3926E754AFE4B34E /* Pods-CityAirportSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityAirportSearch.debug.xcconfig"; path = "Target Support Files/Pods-CityAirportSearch/Pods-CityAirportSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +87,7 @@
 			children = (
 				7F12D61D26FE222D00080308 /* Cell */,
 				7F2FBE8026F4B80B00760483 /* SearchCityViewController.swift */,
+				7F7F57472700B02E00DF4B09 /* AirportViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,6 +97,7 @@
 			children = (
 				7F04183426F4C02400AE3815 /* SearchCityViewModel.swift */,
 				7F12D61B26FE15A300080308 /* CityViewModel.swift */,
+				7F7F57492700B09900DF4B09 /* AirportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 				7F04183926F5CAAD00AE3815 /* Coordinator.swift */,
 				7F04183B26F5CC9400AE3815 /* BaseCoordinator.swift */,
 				7F04184026F5D46800AE3815 /* AppCoordinator.swift */,
+				7F7F574B2700B9D600DF4B09 /* AirportCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -337,16 +346,19 @@
 				7F04184726F5DE3E00AE3815 /* HttpRouter.swift in Sources */,
 				7F04183A26F5CAAD00AE3815 /* Coordinator.swift in Sources */,
 				7F12D61C26FE15A300080308 /* CityViewModel.swift in Sources */,
+				7F7F574C2700B9D600DF4B09 /* AirportCoordinator.swift in Sources */,
 				7F04184B26F5DF6600AE3815 /* AirportHttpService.swift in Sources */,
 				7F04183826F5CA6700AE3815 /* SearchCityCoordinator.swift in Sources */,
 				7F04183F26F5CD8B00AE3815 /* Storyboardable.swift in Sources */,
 				7F04183C26F5CC9400AE3815 /* BaseCoordinator.swift in Sources */,
 				7F04185126F5E34D00AE3815 /* AirportAPI.swift in Sources */,
 				7F04184126F5D46800AE3815 /* AppCoordinator.swift in Sources */,
+				7F7F574A2700B09900DF4B09 /* AirportViewModel.swift in Sources */,
 				7F12D62026FE224A00080308 /* CityTableViewCell.swift in Sources */,
 				7F04183526F4C02400AE3815 /* SearchCityViewModel.swift in Sources */,
 				7F2FBE7F26F4B80B00760483 /* SceneDelegate.swift in Sources */,
 				7F04184F26F5E31600AE3815 /* AirportService.swift in Sources */,
+				7F7F57482700B02E00DF4B09 /* AirportViewController.swift in Sources */,
 				7F04185426F5E7B700AE3815 /* AirportModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

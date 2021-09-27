@@ -12,10 +12,17 @@ class AirportTableViewCell: UITableViewCell {
     @IBOutlet weak var airportNameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var legnthLabel: UILabel!
-    
+    @IBOutlet weak var lengthLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
+    func configure(usingViewModel viewModel: AirportViewModel) {
+        self.airportNameLabel.text = viewModel.name
+        self.distanceLabel.text = "\(viewModel.distance ?? 0)"
+        self.countryLabel.text = viewModel.address
+        self.lengthLabel.text = viewModel.runwayLength
+        self.selectionStyle = .none
+    }
 }

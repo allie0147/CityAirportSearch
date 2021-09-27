@@ -22,4 +22,9 @@ class CityTableViewCell: UITableViewCell {
         self.cityLabel.text = viewModel.city
         self.locationLabel.text = viewModel.location
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+
 }

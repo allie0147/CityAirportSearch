@@ -120,7 +120,7 @@ private extension SearchCityViewModel {
         }
             .map { [routingAction] in
 //            print("Airports selected: \($0)")
-                
+
             // accept AirportViewModel which is selected
             routingAction.selectedCityRelay.accept($0)
         }

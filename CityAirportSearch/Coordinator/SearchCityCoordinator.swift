@@ -45,7 +45,7 @@ private extension SearchCityCoordinator {
 
     /// push viewController to child viewController
     func showAirports(usingModels models: Set<AirportModel>) {
-        let airportsCoordinator = AirportCoordinator(navigation: self.navigationController)
+        let airportsCoordinator = AirportCoordinator(models: models, navigation: self.navigationController)
         self.add(coordinator: airportsCoordinator)
         airportsCoordinator.start()
     }

@@ -8,6 +8,7 @@
 import UIKit
 
 class AirportTableViewCell: UITableViewCell {
+    static let identifier = "AirportTableViewCell"
 
     @IBOutlet weak var airportNameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -18,7 +19,7 @@ class AirportTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func configure(usingViewModel viewModel: AirportViewModel) {
+    func configure(usingViewModel viewModel: AirportViewPresentable) {
         self.airportNameLabel.text = viewModel.name
         self.distanceLabel.text = "\(viewModel.distance ?? 0)"
         self.countryLabel.text = viewModel.address

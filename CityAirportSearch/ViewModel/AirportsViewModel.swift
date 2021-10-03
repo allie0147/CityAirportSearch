@@ -53,9 +53,14 @@ private extension AirportsViewModel {
         let sections = Observable.just(dependencies.models)
             .withLatestFrom(dependencies.currentLocation) { ($0, $1) }
             .map { args in
-            args.0.compactMap { AirportViewModel(usingModel: $0,
-                                                 currentLocation: args.1 ?? (lat: 0, lon: 0)
-                ) } }
+            args.0
+                .compactMap {
+                AirportViewModel(
+                    usingModel: $0,
+                    currentLocation: args.1 ?? (lat: 0, lon: 0)
+                ) }
+                .sorted() // sorted by distance (<)
+            }
             .map { [AirportItemSection(model: 0, items: $0)] }
             .asDriver(onErrorJustReturn: [])
 

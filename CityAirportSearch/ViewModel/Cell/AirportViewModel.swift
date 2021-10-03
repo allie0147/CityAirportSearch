@@ -73,6 +73,12 @@ private extension AirportViewModel {
 }
 
 // MARK: -Extension
-extension AirportViewModel {
+extension AirportViewModel: Comparable {
+    static func < (lhs: AirportViewModel, rhs: AirportViewModel) -> Bool {
+        return lhs.distance ?? 0 < rhs.distance ?? 0
+    }
 
+    static func == (lhs: AirportViewModel, rhs: AirportViewModel) -> Bool {
+        return lhs.code == rhs.code
+    }
 }

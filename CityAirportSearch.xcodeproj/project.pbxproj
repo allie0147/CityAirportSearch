@@ -133,6 +133,7 @@
 		7F04184226F5DDF100AE3815 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7F28BF892708570000AD6F81 /* Location */,
 				7F04184526F5DE0700AE3815 /* Http */,
 				7F04184E26F5E31600AE3815 /* AirportService.swift */,
 				7F04185026F5E34D00AE3815 /* AirportAPI.swift */,
@@ -143,7 +144,6 @@
 		7F04184526F5DE0700AE3815 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				7F28BF892708570000AD6F81 /* Location */,
 				7F04185726F5F7AE00AE3815 /* Base */,
 				7F04184A26F5DF6600AE3815 /* AirportHttpService.swift */,
 				7F04184C26F5DFC800AE3815 /* AirportHttpRouter.swift */,

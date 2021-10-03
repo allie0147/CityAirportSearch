@@ -20,13 +20,15 @@ class AirportCoordinator: BaseCoordinator {
 
     override func start() {
         let view = AirportViewController.instantiate()
+        let locationService = LocationService.shared
 
-        view.viewModelBuilder = { [models] in
+        view.viewModelBuilder = { [locationService, models] in
             let title = models.first?.city ?? ""
             return AirportsViewModel(
                 input: $0,
                 dependencies: (title: title,
-                               models: models)
+                               models: models,
+                               currentLocation: locationService.currentLocation )
             )
         }
 

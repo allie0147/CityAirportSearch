@@ -5,6 +5,7 @@
 //  Created by Allie Kim on 2021/09/26.
 //
 
+import RxSwift
 import RxCocoa
 import RxDataSources
 
@@ -21,7 +22,8 @@ protocol AirportsViewPresentable {
 
     typealias Dependencies = (
         title: String,
-        models: Set<AirportModel>
+        models: Set<AirportModel>,
+        currentLocation: Observable<(lat: Double, lon: Double)?>
     )
 
     typealias ViewModelBuilder = (AirportsViewPresentable.Input) -> AirportsViewPresentable
@@ -48,10 +50,14 @@ private extension AirportsViewModel {
 
     static func output(dependencies: AirportsViewPresentable.Dependencies) -> AirportsViewPresentable.Output {
 
-        let sections = Driver.just(dependencies.models)
-            .map { $0.compactMap { AirportViewModel(usingModel: $0) } }
+        let sections = Observable.just(dependencies.models)
+            .withLatestFrom(dependencies.currentLocation) { ($0, $1) }
+            .map { args in
+            args.0.compactMap { AirportViewModel(usingModel: $0,
+                                                 currentLocation: args.1 ?? (lat: 0, lon: 0)
+                ) } }
             .map { [AirportItemSection(model: 0, items: $0)] }
-
+            .asDriver(onErrorJustReturn: [])
 
         return (
             title: Driver.just(dependencies.title),

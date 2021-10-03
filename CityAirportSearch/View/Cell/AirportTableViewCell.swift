@@ -21,7 +21,7 @@ class AirportTableViewCell: UITableViewCell {
 
     func configure(usingViewModel viewModel: AirportViewPresentable) {
         self.airportNameLabel.text = viewModel.name
-        self.distanceLabel.text = "\(viewModel.distance ?? 0)"
+        self.distanceLabel.text = "\(viewModel.distance ?? 0) Km"
         self.countryLabel.text = viewModel.address
         self.lengthLabel.text = viewModel.runwayLength
         self.selectionStyle = .none

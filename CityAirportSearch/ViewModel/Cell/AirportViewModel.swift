@@ -29,7 +29,8 @@ struct AirportViewModel: AirportViewPresentable {
     var distance: Double?
 
     var formattedDistance: String {
-        return "\(distance?.rounded(.toNearestOrEven) ?? 0 / 1000) Km"
+        let formatted = (distance ?? 0 * 1.6 / 1000).rounded(.up)
+        return "\(formatted) Km"
     }
 
     var runwayLength: String

@@ -33,9 +33,25 @@ class AppCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        let seacrhCityCoordinator = SearchCityCoordinator(navigation: navigationController)
+        // make router constant
+        let router = Router(navigationController: self.navigationController)
+        // dependency inject to a first ViewController
+        let seacrhCityCoordinator = SearchCityCoordinator(router: router)
         self.add(coordinator: seacrhCityCoordinator)
+        // remove coordinator after popViewcontroller
+        // this won't be happen but just in case to be safe...
+        seacrhCityCoordinator.isCompleted = { [weak self, weak seacrhCityCoordinator] in
+            guard let coordinator = seacrhCityCoordinator else {
+                return
+            }
+            self?.remove(coordinator: coordinator)
+        }
+
+        // instantiate view
         seacrhCityCoordinator.start()
+
+
+
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }

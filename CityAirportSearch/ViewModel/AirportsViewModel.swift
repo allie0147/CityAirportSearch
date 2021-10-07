@@ -18,7 +18,9 @@ protocol AirportsViewPresentable {
         airports: Driver<[AirportItemSection]>
     )
 
-    typealias Input = ()
+    typealias Input = (
+        selectedAirport: Driver<AirportViewPresentable>, ()
+    )
 
     typealias Dependencies = (
         title: String,
@@ -37,10 +39,19 @@ struct AirportsViewModel: AirportsViewPresentable {
     var output: AirportsViewPresentable.Output
     var input: AirportsViewPresentable.Input
 
+    private let bag = DisposeBag()
+
+    private typealias RoutingAction = (selectAirportRelay: PublishRelay<AirportModel>, ())
+    private let routingAction = (selectAirportRelay: PublishRelay<AirportModel>(), ())
+
+    typealias Routing = (selectAirport: Driver<AirportModel>, ())
+    lazy var router: Routing = (selectAirport: routingAction.selectAirportRelay.asDriver(onErrorDriveWith: .empty()), ())
+
     init(input: AirportsViewPresentable.Input,
          dependencies: AirportsViewPresentable.Dependencies) {
         self.input = input
         self.output = AirportsViewModel.output(dependencies: dependencies)
+        self.process()
     }
 
 }
@@ -60,7 +71,7 @@ private extension AirportsViewModel {
                     currentLocation: args.1 ?? (lat: 0, lon: 0)
                 ) }
                 .sorted() // sorted by distance (<)
-            }
+        }
             .map { [AirportItemSection(model: 0, items: $0)] }
             .asDriver(onErrorJustReturn: [])
 
@@ -68,5 +79,18 @@ private extension AirportsViewModel {
             title: Driver.just(dependencies.title),
             airports: sections
         )
+    }
+
+    ///
+    func process() {
+        self.input
+            .selectedAirport
+            .map { viewModel in
+
+
+
+        }
+            .drive()
+            .disposed(by: bag)
     }
 }

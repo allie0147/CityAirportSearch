@@ -27,7 +27,12 @@ class AirportViewController: UIViewController, Storyboardable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = viewModelBuilder(())
+        self.viewModel = viewModelBuilder((
+            selectedAirport: self.airportTableView.rx
+                .modelSelected(AirportViewPresentable.self)
+                .asDriver(onErrorDriveWith: .empty()),
+            ()
+        ))
         setupUI()
         setupBinding()
     }
@@ -56,3 +61,4 @@ private extension AirportViewController {
             .disposed(by: bag)
     }
 }
+

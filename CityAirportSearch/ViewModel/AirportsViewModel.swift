@@ -81,18 +81,17 @@ private extension AirportsViewModel {
         )
     }
 
-    ///
     func process(dependencies: AirportsViewPresentable.Dependencies) {
         self.input
             .selectedAirport
             .map { [models = dependencies.models] viewModel in
             models.filter({ $0.code == viewModel.code }).first }
             .filter { $0 != nil } // nil check
-            .map { $0! } // force unwrappring
-            .map { [routingAction] in
-                routingAction.selectedAirportRelay.accept($0)
-            }
-            .drive()
-            .disposed(by: bag)
+        .map { $0! } // force unwrappring
+        .map { [routingAction] in
+            routingAction.selectedAirportRelay.accept($0)
+        }
+            .drive() // .modelSelected(AirportViewPresentable.self)
+        .disposed(by: bag)
     }
 }

@@ -16,12 +16,11 @@ final class Router: NSObject {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         super.init()
-        self.navigationController.delegate = self
+        self.navigationController.delegate = self // UINavigationControllerDelegate
     }
 }
 
 extension Router: Routing {
-
     func push(_ drawable: Drawable,
               isAnimated: Bool,
               onNavigationBack closure: NavigationBackClosure?
@@ -40,6 +39,25 @@ extension Router: Routing {
         navigationController.popViewController(animated: isAnimated)
     }
 
+    func popToRoot(_ isAnimated: Bool) {
+        navigationController.popToRootViewController(animated: isAnimated)
+    }
+
+    func present(_ drawable: Drawable,
+                 isAnimated: Bool,
+                 onDismiss: NavigationBackClosure?
+    ) {
+        guard let viewController = drawable.viewController else { return }
+
+        if let closure = onDismiss {
+            closures.updateValue(closure, forKey: viewController.description)
+        }
+
+        navigationController.present(viewController, animated: isAnimated)
+        viewController.presentationController?.delegate = self // UIAdaptivePresentationControllerDelegate
+    }
+
+
     func executeClosure(_ viewController: UIViewController) {
         guard let closure = closures.removeValue(forKey: viewController.description) else {
             return
@@ -49,6 +67,7 @@ extension Router: Routing {
     }
 }
 
+// MARK: - Extension: UINavigationControllerDelegate
 extension Router: UINavigationControllerDelegate {
 
     func navigationController(_ navigationController: UINavigationController,
@@ -67,5 +86,14 @@ extension Router: UINavigationControllerDelegate {
 
         // pop - remove child coordinator
         executeClosure(previousController)
+    }
+}
+
+// MARK: - Extension: UIAdaptivePresentationControllerDelegate
+extension Router: UIAdaptivePresentationControllerDelegate {
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        // dismiss - remove presentedViewController
+        executeClosure(presentationController.presentedViewController)
     }
 }

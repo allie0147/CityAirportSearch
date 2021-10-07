@@ -10,9 +10,15 @@ import Foundation
 typealias NavigationBackClosure = (() -> ())
 
 protocol Routing {
-    /// push a ViewController which implements Drawable
+    /// Push a viewController which implements Drawable
     func push(_ drawable: Drawable, isAnimated: Bool, onNavigationBack: NavigationBackClosure?)
-    
-    /// pop a ViewController
+
+    /// Pop a viewController
     func pop(_ isAnimated: Bool)
+
+    /// Pop to the rootViewController
+    func popToRoot(_ isAnimated: Bool)
+
+    /// Present a viewController which implements Drawable
+    func present(_ drawable: Drawable, isAnimated: Bool, onDismiss: NavigationBackClosure?)
 }

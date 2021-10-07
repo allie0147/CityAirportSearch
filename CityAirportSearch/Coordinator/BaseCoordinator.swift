@@ -10,6 +10,7 @@ class BaseCoordinator: Coordinator {
     var childCoordinator: [Coordinator] = []
 
     /// After popViewController `NavigationBackClosure` will be handled using this variable
+    /// presentedViewController deallocated
     var isCompleted: (() -> ())?
 
     /**

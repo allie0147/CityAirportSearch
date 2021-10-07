@@ -33,6 +33,7 @@
 		7F2FBE8626F4B80C00760483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8526F4B80C00760483 /* Assets.xcassets */; };
 		7F2FBE8926F4B80C00760483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FBE8726F4B80C00760483 /* LaunchScreen.storyboard */; };
 		7F3BE7C0270F3CF500C0BDBA /* AirportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BE7BE270F3CF500C0BDBA /* AirportDetailsViewController.swift */; };
+		7F3BE7C3270F498A00C0BDBA /* AirportDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BE7C2270F498A00C0BDBA /* AirportDetailsCoordinator.swift */; };
 		7F5205FB270B450200651AB8 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5205FA270B450200651AB8 /* Drawable.swift */; };
 		7F70FB8E27020F050004B852 /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70FB8D27020F050004B852 /* AirportTableViewCell.swift */; };
 		7F70FB9027020F120004B852 /* AirportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F70FB8F27020F120004B852 /* AirportTableViewCell.xib */; };
@@ -74,6 +75,7 @@
 		7F2FBE8826F4B80C00760483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F2FBE8A26F4B80C00760483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F3BE7BE270F3CF500C0BDBA /* AirportDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsViewController.swift; sourceTree = "<group>"; };
+		7F3BE7C2270F498A00C0BDBA /* AirportDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDetailsCoordinator.swift; sourceTree = "<group>"; };
 		7F5205FA270B450200651AB8 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		7F70FB8D27020F050004B852 /* AirportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
 		7F70FB8F27020F120004B852 /* AirportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportTableViewCell.xib; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				7F04183B26F5CC9400AE3815 /* BaseCoordinator.swift */,
 				7F04184026F5D46800AE3815 /* AppCoordinator.swift */,
 				7F7F574B2700B9D600DF4B09 /* AirportCoordinator.swift */,
+				7F3BE7C2270F498A00C0BDBA /* AirportDetailsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				7F2FBE8126F4B80B00760483 /* SearchCityViewController.swift in Sources */,
 				7F04184D26F5DFC800AE3815 /* AirportHttpRouter.swift in Sources */,
 				7F04185626F5F53700AE3815 /* CustomError.swift in Sources */,
+				7F3BE7C3270F498A00C0BDBA /* AirportDetailsCoordinator.swift in Sources */,
 				7F04184926F5DEEE00AE3815 /* HttpService.swift in Sources */,
 				7F2FBE7D26F4B80B00760483 /* AppDelegate.swift in Sources */,
 				7F04184726F5DE3E00AE3815 /* HttpRouter.swift in Sources */,

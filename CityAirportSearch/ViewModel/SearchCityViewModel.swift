@@ -101,7 +101,7 @@ private extension SearchCityViewModel {
         return (cities: sections, ())
     }
 
-    /// Get data from API Service
+    /// Get data from API Service & Handle cell selected event
     func process() {
         self.airportService
             .fetchAirports()

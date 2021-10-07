@@ -34,24 +34,24 @@ protocol AirportsViewPresentable {
     var input: AirportsViewPresentable.Input { get }
 }
 
-struct AirportsViewModel: AirportsViewPresentable {
+class AirportsViewModel: AirportsViewPresentable {
 
     var output: AirportsViewPresentable.Output
     var input: AirportsViewPresentable.Input
 
     private let bag = DisposeBag()
 
-    private typealias RoutingAction = (selectAirportRelay: PublishRelay<AirportModel>, ())
-    private let routingAction = (selectAirportRelay: PublishRelay<AirportModel>(), ())
-
-    typealias Routing = (selectAirport: Driver<AirportModel>, ())
-    lazy var router: Routing = (selectAirport: routingAction.selectAirportRelay.asDriver(onErrorDriveWith: .empty()), ())
+    // Routers
+    private typealias RoutingAction = (selectedAirportRelay: PublishRelay<AirportModel>, ())
+    private let routingAction = (selectedAirportRelay: PublishRelay<AirportModel>(), ())
+    typealias Routing = (selectedAirport: Driver<AirportModel>, ())
+    lazy var router: Routing = (selectedAirport: routingAction.selectedAirportRelay.asDriver(onErrorDriveWith: .empty()), ())
 
     init(input: AirportsViewPresentable.Input,
          dependencies: AirportsViewPresentable.Dependencies) {
         self.input = input
         self.output = AirportsViewModel.output(dependencies: dependencies)
-        self.process()
+        self.process(dependencies: dependencies)
     }
 
 }
@@ -82,14 +82,16 @@ private extension AirportsViewModel {
     }
 
     ///
-    func process() {
+    func process(dependencies: AirportsViewPresentable.Dependencies) {
         self.input
             .selectedAirport
-            .map { viewModel in
-
-
-
-        }
+            .map { [models = dependencies.models] viewModel in
+            models.filter({ $0.code == viewModel.code }).first }
+            .filter { $0 != nil } // nil check
+            .map { $0! } // force unwrappring
+            .map { [routingAction] in
+                routingAction.selectedAirportRelay.accept($0)
+            }
             .drive()
             .disposed(by: bag)
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AirportDetailsViewController: UIViewController {
+class AirportDetailsViewController: UIViewController, Storyboardable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

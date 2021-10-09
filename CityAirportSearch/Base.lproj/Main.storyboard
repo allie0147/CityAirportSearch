@@ -101,13 +101,63 @@
                     <view key="view" contentMode="scaleToFill" id="4IV-8o-eDl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="apG-6o-wpL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="689"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-gn-OiS">
+                                <rect key="frame" x="0.0" y="733" width="414" height="129"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airport Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgV-NV-bp4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="26"/>
+                                        <color key="textColor" red="1" green="0.084418959919999995" blue="0.2442809343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPu-tZ-XZE">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X88-u4-x7k">
+                                        <rect key="frame" x="0.0" y="74" width="414" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runway Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWE-VG-bVu">
+                                        <rect key="frame" x="0.0" y="109.5" width="414" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BmX-D7-DUd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BmX-D7-DUd" firstAttribute="trailing" secondItem="FEs-gn-OiS" secondAttribute="trailing" id="1Fl-qR-NCS"/>
+                            <constraint firstItem="BmX-D7-DUd" firstAttribute="bottom" secondItem="FEs-gn-OiS" secondAttribute="bottom" id="7NF-19-rMp"/>
+                            <constraint firstItem="apG-6o-wpL" firstAttribute="leading" secondItem="BmX-D7-DUd" secondAttribute="leading" id="86L-1h-kd6"/>
+                            <constraint firstItem="apG-6o-wpL" firstAttribute="trailing" secondItem="BmX-D7-DUd" secondAttribute="trailing" id="Iu8-BN-2Lk"/>
+                            <constraint firstItem="apG-6o-wpL" firstAttribute="top" secondItem="BmX-D7-DUd" secondAttribute="top" id="a1a-B6-s1C"/>
+                            <constraint firstItem="FEs-gn-OiS" firstAttribute="leading" secondItem="BmX-D7-DUd" secondAttribute="leading" id="kb6-VR-4j8"/>
+                            <constraint firstItem="FEs-gn-OiS" firstAttribute="top" secondItem="apG-6o-wpL" secondAttribute="bottom" id="yf8-by-0b9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="airportNameLabel" destination="tgV-NV-bp4" id="9GK-EL-aK9"/>
+                        <outlet property="countryLabel" destination="X88-u4-x7k" id="HwH-c9-iC5"/>
+                        <outlet property="distanceLabel" destination="FPu-tZ-XZE" id="QkE-Bw-XpV"/>
+                        <outlet property="mapView" destination="apG-6o-wpL" id="mce-5e-XoL"/>
+                        <outlet property="runwayLengthLabel" destination="pWE-VG-bVu" id="2xn-69-N2k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5F-OR-xUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1572" y="88"/>
+            <point key="canvasLocation" x="1571.0144927536232" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>

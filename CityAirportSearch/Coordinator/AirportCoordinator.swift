@@ -51,7 +51,8 @@ private extension AirportCoordinator {
 
     func showAirportDetails(model: AirportModel) {
 
-        let detailsCoordinator = AirportDetailsCoordinator(router: self.router)
+        let detailsCoordinator = AirportDetailsCoordinator(model: model,
+                                                           router: self.router)
         self.add(coordinator: detailsCoordinator)
 
         detailsCoordinator.isCompleted = { [weak self, weak detailsCoordinator] in

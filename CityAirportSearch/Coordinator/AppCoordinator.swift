@@ -16,8 +16,9 @@ class AppCoordinator: BaseCoordinator {
         let nav = UINavigationController()
 
         let navBar = nav.navigationBar
-        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navBar.shadowImage = UIImage()
+        //        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        //        navBar.shadowImage = UIImage()
+        navBar.backgroundColor = UIColor(red: 233.0 / 255.0, green: 55.0 / 255.0, blue: 72.0 / 255.0, alpha: 1.0)
         navBar.barTintColor = UIColor(red: 233.0 / 255.0, green: 55.0 / 255.0, blue: 72.0 / 255.0, alpha: 1.0)
         navBar.tintColor = .white
         navBar.titleTextAttributes = [
@@ -49,8 +50,6 @@ class AppCoordinator: BaseCoordinator {
 
         // instantiate view
         seacrhCityCoordinator.start()
-
-
 
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

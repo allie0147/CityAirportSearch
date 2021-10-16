@@ -102,8 +102,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpV-ad-92i">
+                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHV-Bc-cPl">
+                                        <rect key="frame" x="354" y="7.5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="S4s-xm-Iub"/>
+                                            <constraint firstAttribute="width" constant="40" id="mxK-h5-ht3"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="0.084418959919999995" blue="0.2442809343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <buttonConfiguration key="configuration" style="gray"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bHV-Bc-cPl" firstAttribute="centerY" secondItem="GpV-ad-92i" secondAttribute="centerY" id="Bkn-QC-Doj"/>
+                                    <constraint firstAttribute="trailing" secondItem="bHV-Bc-cPl" secondAttribute="trailing" constant="20" id="nac-Es-3oR"/>
+                                    <constraint firstAttribute="height" constant="55" id="piL-ll-fZY"/>
+                                </constraints>
+                            </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="apG-6o-wpL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="689"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="634"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-gn-OiS">
                                 <rect key="frame" x="0.0" y="733" width="414" height="129"/>
@@ -142,13 +162,17 @@
                             <constraint firstItem="BmX-D7-DUd" firstAttribute="bottom" secondItem="FEs-gn-OiS" secondAttribute="bottom" id="7NF-19-rMp"/>
                             <constraint firstItem="apG-6o-wpL" firstAttribute="leading" secondItem="BmX-D7-DUd" secondAttribute="leading" id="86L-1h-kd6"/>
                             <constraint firstItem="apG-6o-wpL" firstAttribute="trailing" secondItem="BmX-D7-DUd" secondAttribute="trailing" id="Iu8-BN-2Lk"/>
-                            <constraint firstItem="apG-6o-wpL" firstAttribute="top" secondItem="BmX-D7-DUd" secondAttribute="top" id="a1a-B6-s1C"/>
+                            <constraint firstItem="GpV-ad-92i" firstAttribute="leading" secondItem="BmX-D7-DUd" secondAttribute="leading" id="KIh-ik-E1A"/>
+                            <constraint firstItem="GpV-ad-92i" firstAttribute="top" secondItem="BmX-D7-DUd" secondAttribute="top" id="P6k-cb-UrJ"/>
                             <constraint firstItem="FEs-gn-OiS" firstAttribute="leading" secondItem="BmX-D7-DUd" secondAttribute="leading" id="kb6-VR-4j8"/>
+                            <constraint firstItem="BmX-D7-DUd" firstAttribute="trailing" secondItem="GpV-ad-92i" secondAttribute="trailing" id="yCS-zR-xZn"/>
                             <constraint firstItem="FEs-gn-OiS" firstAttribute="top" secondItem="apG-6o-wpL" secondAttribute="bottom" id="yf8-by-0b9"/>
+                            <constraint firstItem="apG-6o-wpL" firstAttribute="top" secondItem="GpV-ad-92i" secondAttribute="bottom" id="ylQ-Q9-9IC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="airportNameLabel" destination="tgV-NV-bp4" id="9GK-EL-aK9"/>
+                        <outlet property="closeButton" destination="bHV-Bc-cPl" id="nDV-u5-ynJ"/>
                         <outlet property="countryLabel" destination="X88-u4-x7k" id="HwH-c9-iC5"/>
                         <outlet property="distanceLabel" destination="FPu-tZ-XZE" id="QkE-Bw-XpV"/>
                         <outlet property="mapView" destination="apG-6o-wpL" id="mce-5e-XoL"/>

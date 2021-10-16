@@ -13,7 +13,8 @@ protocol AirportDetailsViewPresentable {
 
     typealias Input = ()
     typealias Output = (
-        airportDetails: Driver<AirportViewPresentable>, ()
+        airportDetails: Driver<AirportViewPresentable>,
+        mapDetails: Driver<AirportMapViewPresentable>
     )
     typealias Dependencies = (
         model: AirportModel,
@@ -50,11 +51,35 @@ private extension AirportDetailsViewModel {
             .map { $0! }
             .map { [airportModel = dependencies.model] (currentLocation) in
             AirportViewModel(usingModel: airportModel, currentLocation: currentLocation)
-        }.asDriver(onErrorDriveWith: .empty())
+        }
+            .asDriver(onErrorDriveWith: .empty())
+
+        let mapDetails: Driver<AirportMapViewPresentable> = dependencies.currentLocation
+            .filter { $0 != nil }
+            .map { $0! }
+            .map { [airportModel = dependencies.model] (currentLocation) in
+
+            guard let lat = Double(airportModel.lat),
+                let lon = Double(airportModel.lon) else {
+                throw CustomError.error(message: "Airport Location Missing")
+            }
+
+            let airportLocation = (lat: lat, lon: lon)
+
+            return AirportMapViewModel(
+                airport: (
+                    name: airportModel.name
+                    , city: airportModel.city ?? "NA"
+                ),
+                currentLocation: currentLocation,
+                airportLocation: airportLocation
+            )
+        }
+            .asDriver(onErrorDriveWith: .empty())
 
         return (
-            airportDetails: airportDetails, ()
+            airportDetails: airportDetails,
+            mapDetails: mapDetails
         )
     }
-
 }
